@@ -1,0 +1,26 @@
+Hello!
+
+Please enter the following information.  First, change "Name" to "My name"
+below.  Then provide your name and class year, which must be on the same lines
+as "My name" and "Class year," respectively.  Then answer the qeustion about
+prior programming experience on a line following the question, leaving a blank
+line between the question and your answer.  Finally, delete the "Something
+interesting" block of text and replace it with your response.
+
+If you are using Vim, the following keys in command mode might be helpful:
+
+* 'i' puts you in insert mode, letting you insert text just before the
+  cursor position.
+* 'a' puts you in insert mode, letting you insert text just after the
+  cursor position.
+* 'o' creates a new line below the line where the cursor is and enters
+  insert mode.
+* 'x' deletes the character under the cursor.
+
+Name:
+Class year:
+
+Do you have any prior programming experience?  If so, what?
+
+Something interesting you would like to tell me.  This can be about
+you, about something you find interesting, whatever!

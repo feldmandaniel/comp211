@@ -1,0 +1,77 @@
+how we define functions:
+
+  in python:
+  1. we write "def"
+  2. name of our function
+  3. '(parameters):'
+  4. body (code)
+  5. return call
+
+  def hyp(a, b):
+    c = math.sqrt(a*a + b*b)
+
+    return c
+
+  def main():
+    x = float(input(enter a side length: ))
+    y = float(input(enter another side length: ))
+
+    z = hype(x, y)
+
+    print("The hyp of a right triangle with side lengths {} and {} is {}.". format(x, y, z))
+
+    return
+
+    main()
+
+
+  in c:
+
+  include <stdio.h>
+
+  double hyp(double a, double b){
+    double c = sqrt(a*a + b*b)
+
+    return c
+  }
+  int main (int argc, char **argv) {
+
+  double x, y ,z;
+
+  printf("enter a side length");
+  scanf("%f", &x);
+
+  printf("enter another side length");
+  scanf("%f", &y);
+
+  z = hyp(x, y);
+
+  printf("the hyp of a right angle traingle with the sside lenaths %lf and %lf if %lf./n", x, y ,z);
+
+  return 0;
+
+  }
+
+- the body of the function tells us 'how,' not 'what.'
+  - in order to know 'what' we need to know the types.
+
+  print stars(n): prints n *'s to the terminal
+def printstars(n):
+
+  print('*' * n)
+
+  return
+
+- this is a 'what' function, it only really does something, but doesn't return anything.
+- void printstars (int n) {
+
+  for (int i = 0; i<n; i += 1){
+    printf('*');
+  }
+  print('\n')
+
+  return ;
+
+}
+
+- ALWAYS return when writing a function, even if its 0 and at the end of a function.

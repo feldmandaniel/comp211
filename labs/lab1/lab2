@@ -1,0 +1,73 @@
+#include <stdio.h>#
+#include <math.h>#
+
+int main(int argc, char **argv) {
+
+  printf("Hello, world/n");
+
+}
+
+### how to write c###
+- every c program should have ONE function in it called 'main.'
+- main HAS to have int argc, char argv** and curly bracket to define what it does.
+- case MATTERS in c, but indentation doesn't .
+- main doesn't have to be the first thing on the page.
+  - you can call functions in main but they don't have to be defined first.
+- in c, when we define functions we MUST specify the types of parameters.
+- <stdio.h> contains information (like a package?)
+  - <stdio.h> includes legal c code--> tell c to 'take the following arguments and stick them here.'
+- include can do kinda what import doest (we don't wanna use it yet) but we can include other files.
+- spaces, NOT TABS.
+- for right now, we can't call a function outside of main.
+
+### how to run c ###
+- to use a c compiler, we specify 'cc' + <file you want to compile>
+- shell outputs into a file called 'a.out' (called an executable) unless specifies otherwise.
+  - can specify name of executable: 'cc' + '-o' + <name of output file> + <file you want to compile>.
+- the cwd is not the directory in which the cc is allowed to operate.
+  - thats why we need to tell the shell ./
+- an executable program is just a file.
+  - thus, when calling a program the shell essentially just opens a file.
+- '/n'  tells the shell to start a new line after executing code.
+- implicit declaration = by forgetting the header file (<stdio.h>), the compiler will suggest what the function can be.
+-
+
+###converting age to dog years:
+
+##in python:
+
+def main():
+
+  age = int(input("Enter your age: "))
+
+  print('your age in dog years is ' + str(7 * age) + '.')
+
+  print('your age in dog years is {}'.format(7*age)) <- closer to how this is dealt in with c
+
+  return
+
+main()
+
+##in c:
+
+int main(int argc, char **argv){
+
+  int age; <-- variable <age> HAS to be an int
+
+  printf('Enter your age: ') <--prompts user to input something into the function: what makes this a prompt is the ';' which tells the shell to stop
+  /*
+  scanf(<format specifier to describe the type of input>,
+        <variable in which to store the result)
+  */
+
+  scanf('%d', &age) ; <-- first arg: to tell program what to expect, &: for the type of object to print.
+
+  printf("Your age in dog years is %d.\n", 7*age) <-- '%'= tells printf what to replace
+
+  age_sqrt = sqrt(age); <- we need to import a module (package in python) and then you need to inclued '-lm' after file that you run in order to run the math functions
+  printf("The square root of your age is %f.\n", age_sqrt);
+
+return 0;
+}
+
+- double vs float: float is 32-bit and double is 64-bit.
