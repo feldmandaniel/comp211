@@ -62,18 +62,17 @@ bool is_valid(int checksum){
   return x;
 }
 
-
-bool validate(accnum){
+bool validate(unsigned long accnum){
   int out_sum;
   bool valid;
   printf("Account number: ");
-  scanf("%u", &accnum);
+  scanf("%lu", &accnum);
   out_sum = checksum(accnum);
   valid = is_valid(out_sum);
   return valid;
 }
 
-int find_valid_accnum(unsigned long accnum){
+int construct_valid_accnum(unsigned long accnum){
   bool valid;
   int out_sum;
   printf("Account number: ");
@@ -90,11 +89,20 @@ int find_valid_accnum(unsigned long accnum){
   return accnum;
 }
 
+void find_or_validate(){
+  char val_or_con;
+  printf("(V)alidate or (C)onstruct? ");
+  scanf("%s", &val_or_con);
+  if (val_or_con == 'V'){
+    validate(val_or_con);
+  }
+  else if (val_or_con == 'C'){
+    construct_valid_accnum(val_or_con);
+  }
+  return;
+}
+
 int main(){
-  int v;
-  bool valid;
-  unsigned long usr_acc;
-  /*valid = validate(usr_acc);*/
-  v = find_valid_accnum(usr_acc);
-  return v;
+  find_or_validate();
+  return 0;
 }
