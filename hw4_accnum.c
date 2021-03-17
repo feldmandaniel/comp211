@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 int max_pow10(unsigned long digit){
   int k = 0;
@@ -25,18 +26,8 @@ int sum_digits(int digit){
   return digit_sum;
 }
 
-void is_valid(int checksum){
-  if (checksum % 10 ==0){
-    printf("VALID BRUH\n");
-  }
-  else{
-    printf("NOT valid bruh\n");
-  }
-  return;
-}
-
 int checksum(unsigned long accnum){
-  int odd_dig, even_dig, checksum, sub_1, sub_2, k;
+  int odd_dig, even_dig, checksum = 0, sub_1, sub_2, k;
   int max_k = max_pow10(accnum);
   for(k = 1; max_k >= k; k = k + 2){
     sub_1 = (int) accnum % (int) pow(10, k);
@@ -58,18 +49,52 @@ int checksum(unsigned long accnum){
   return checksum;
 }
 
-void validate(accnum){
+bool is_valid(int checksum){
+  bool x;
+  if (checksum % 10 ==0){
+    x = true;
+    printf("VALID BRUH\n");
+  }
+  else{
+    printf("NOT valid bruh\n");
+    x = false;
+  }
+  return x;
+}
+
+
+bool validate(accnum){
   int out_sum;
+  bool valid;
   printf("Account number: ");
   scanf("%u", &accnum);
   out_sum = checksum(accnum);
-  is_valid(out_sum);
-  return;
+  valid = is_valid(out_sum);
+  return valid;
+}
+
+int find_valid_accnum(unsigned long accnum){
+  bool valid;
+  int out_sum;
+  printf("Account number: ");
+  scanf("%lu", &accnum);
+  accnum = (int) accnum * (int) pow(10, 5 - max_pow10(accnum));
+  printf("accnum = %lu\n", accnum);
+  while (!valid) {
+    accnum = accnum + 1;
+    printf("accnum = %lu\n", accnum);
+    out_sum = checksum(accnum);
+    valid = is_valid(out_sum);
+  }
+  printf("accnum = %lu\n", accnum);
+  return accnum;
 }
 
 int main(){
   int v;
+  bool valid;
   unsigned long usr_acc;
-  validate(usr_acc);
+  /*valid = validate(usr_acc);*/
+  v = find_valid_accnum(usr_acc);
   return v;
 }
