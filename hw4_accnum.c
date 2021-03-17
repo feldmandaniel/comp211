@@ -66,11 +66,8 @@ int construct_valid_accnum(unsigned long accnum){
   scanf("%lu", &accnum);
   accnum = accnum * pow(10, 5 - max_pow10(accnum));
   while (out_sum % 10 > 0) {
-    printf("accnum = %lu\n", accnum);
     accnum = accnum + 1;
-    printf("accnum = %lu\n", accnum);
     out_sum = checksum(accnum);
-    printf("checksum: %d\n", out_sum);
   }
   printf("Constructed account number: %lu\n", accnum);
   return accnum;
