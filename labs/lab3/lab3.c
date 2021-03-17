@@ -10,6 +10,8 @@ unsigned long ilog2(unsigned long n){
   return l2;
 }
 
+unsigned long
+
 int main(int argc, char **argv) {
   unsigned long x, ilog;
   printf("Enter a number: ");
