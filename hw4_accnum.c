@@ -2,6 +2,13 @@
 #include <math.h>
 #include <stdbool.h>
 
+
+
+int main(){
+  find_or_validate();
+  return 0;
+}
+
 int max_pow10(unsigned long digit){
   int k = 0;
   while (digit > pow(10, k)){
@@ -37,7 +44,7 @@ int checksum(unsigned long accnum){
   return checksum;
 }
 
-bool is_valid(unsigned long accnum, int checksum){
+void is_valid(unsigned long accnum, int checksum){
   bool x;
   if (checksum % 10 ==0){
     x = true;
@@ -47,17 +54,16 @@ bool is_valid(unsigned long accnum, int checksum){
     printf("%lu is not a valid account number.\n", accnum);
     x = false;
   }
-  return x;
+  return;
 }
 
-bool validate(unsigned long accnum){
+void validate(unsigned long accnum){
   int out_sum;
-  bool valid;
   printf("Enter a prefix with an even number of digits: ");
   scanf("%lu", &accnum);
   out_sum = checksum(accnum);
-  valid = is_valid(accnum, out_sum);
-  return valid;
+  is_valid(accnum, out_sum);
+  return;
 }
 
 int construct_valid_accnum(unsigned long accnum){
@@ -84,9 +90,4 @@ void find_or_validate(){
     construct_valid_accnum(val_or_con);
   }
   return;
-}
-
-int main(){
-  find_or_validate();
-  return 0;
 }

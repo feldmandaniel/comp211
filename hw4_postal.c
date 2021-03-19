@@ -8,15 +8,14 @@
 
 void automate_bars(bool len1, bool len2, bool len3, bool len4, bool len5);
 void print_bar_for_dig(int digit);
-void print_number_bars(unsigned int postal);
 void draw_bar(bool full_half);
-
+void print_number_bars(unsigned int postal);
 
 int main(){
   unsigned int usr_post;
   printf("Enter a 5-digit ZIP code: ");
   scanf("%u\n", &usr_post);
-  usr_post = print_number_bars(12345);
+  print_number_bars(usr_post);
   return 0;
 }
 
@@ -33,8 +32,8 @@ void draw_bar(bool full_half) {
 }
 
 void automate_bars(bool len1, bool len2, bool len3, bool len4, bool len5){
-  /* returns adequate 5-bar combination of full and half-length bars for each
-     were the n-th boolean dictates the length of the n-th bar */
+  /* returns adequate 5-bar combination of full and half-length bars for
+     each were the n-th boolean dictates the length of the n-th bar */
   draw_bar(len1);
   draw_bar(len2);
   draw_bar(len3);
@@ -43,9 +42,9 @@ void automate_bars(bool len1, bool len2, bool len3, bool len4, bool len5){
   return;
 }
 
-
 void print_bar_for_dig(int digit){
-  /* returns adequate 5-bar combination of full and half-length bars for each
+  /* returns adequate 5-bar combination
+     of full and half-length bars for each
      digit from 0-9.  */
   if (digit == 0){
     automate_bars(true, true, false, false, false);
@@ -86,15 +85,15 @@ void print_number_bars(unsigned int postal){
   length bars  for each digit in the zip code,
   followed by the bars for the checksum digit,
   followed by a full-height bar.  */
-  int digit, checksum = 0, sub, b;
+  int digit, checksum = 0, sub;
   printf("The postal bar code for %u:\n", postal);
   draw_bar(true);
   for (int k = 4; k >= 0; k = k - 1){
     printf("\n");
-    b = postal / pow(10, k);
-    postal = postal - (b * pow(10, k));
-    print_bar_for_dig(b);
-    checksum = checksum + b;
+    sub = postal / pow(10, k);
+    postal = postal - (sub * pow(10, k));
+    print_bar_for_dig(sub);
+    checksum = checksum + sub;
   }
   checksum = checksum % 10;
   print_bar_for_dig(checksum);
