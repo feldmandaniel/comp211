@@ -24,9 +24,7 @@ unsigned long calculate_e(unsigned long n){
 		power = power + 1;
 		pow_fact = factorial(power);
 		pow_pow = calculate_power(n, power);
-		printf("factorial of %lu = %lu, %lu to the power of %lu = %f\n", power, pow_fact, n, power, pow_pow);
 		lastterm = pow_pow / pow_fact;
-		printf("lastterm = %Lf, at iteration = %lu\n", lastterm, power);
 		e = e + lastterm;
 			printf("e = %f\n", e);
 	}
