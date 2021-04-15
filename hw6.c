@@ -78,9 +78,9 @@ void set(buffer *b, int n)
 
 void contents(buffer *b, char d[], char e[])
 {
-  printf("Contents was called with ") ;
-  print_array(b->c, BUF_LEN - 1) ;
-  printf("\n") ;
+  // printf("Contents was called with ") ;
+  // print_array(b->c, BUF_LEN - 1) ;
+  // printf("\n") ;
 
   for(int i = 0 ; i <= b->insertionMark ; i++)
   {
